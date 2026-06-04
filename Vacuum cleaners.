@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+const audio = new Audio('https://drive.google.com/uc?export=download&id=1UczAwTpdmBK4lPqKOi5VysmEP8Qu2R0-');
+
+const ws = new WebSocket('wss://irc-ws.chat.twitch.tv');
+
+ws.onopen = () => {
+  ws.send('NICK justinfan12345');
+  ws.send('JOIN #breadcrams47');
+};
+
+ws.onmessage = (e) => {
+  if (e.data.includes('!sound')) {
+    audio.currentTime = 0;
+    audio.play();
+  }
+};
+</script>
+</body>
+</html>
