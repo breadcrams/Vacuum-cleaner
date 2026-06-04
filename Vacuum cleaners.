@@ -12,7 +12,7 @@ ws.onopen = () => {
 };
 
 ws.onmessage = (e) => {
-  if (e.data.includes('!sound')) {
+  if (e.data.includes('!vacuum')) {
     audio.currentTime = 0;
     audio.play();
   }
